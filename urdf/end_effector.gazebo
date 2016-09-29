@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/end_effector</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!-- Link1 -->
+
+  <gazebo reference="link_cubo1">
+    <material>Gazebo/Orange</material>
+    <gravity>true</gravity>
+  </gazebo>
+
+  <!-- Link2 -->
+  <gazebo reference="link_cubo2">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Black</material>
+    <gravity>true</gravity>
+  </gazebo>
+
+  <gazebo reference="link_cubo3">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Orange</material>
+    <gravity>true</gravity>
+  </gazebo>
+
+   <gazebo reference="link_sfera">
+    <material>Gazebo/Black</material>
+    <gravity>true</gravity>
+  </gazebo>
+
+  <gazebo reference="joint1">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+ 
+ <gazebo>
+  <plugin name="force_sensor" filename="libgazebo_ros_ft_sensor.so">
+    <updateRate>100.0</updateRate>
+    <topicName>force_meassurements</topicName>
+    <jointName>joint1</jointName>
+  </plugin>
+ </gazebo>
+
+
+</robot>

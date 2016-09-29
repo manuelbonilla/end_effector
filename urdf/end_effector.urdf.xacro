@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!-- Revolute-Revolute Manipulator -->
+<robot name="end_effector" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Constants for robot dimensions -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+  <xacro:property name="mass" value="1" /> <!-- arbitrary value for mass -->
+  <xacro:property name="width" value="0.25" />
+  <xacro:property name="height" value="0.5" />
+  <xacro:property name="length" value="0.25" /> 
+  <xacro:property name="radius" value="0.125" /> <!-- Square dimensions (widthxwidth) of beams -->
+
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find end_effector)/urdf/end_effector.gazebo" />
+  <!-- Import Rviz colors -->
+  <!-- <xacro:include filename="$(find rrbot_description)/urdf/materials.xacro" /> -->
+  <!--xacro:include filename="$(find lwr_description)/model/kuka_lwr.gazebo.xacro"/-->
+
+  <xacro:macro name="end_effector_kuka_lwr" params="parent name *origin">
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <!-- <link name="world"/> -->
+
+  <joint name="fixed" type="fixed">
+    <parent link="${parent}"/>
+    <child link="link_cubo1"/>
+  </joint>
+
+  <!-- Base Link -->
+  <link name="link_cubo1">
+    <collision>
+      <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+      <geometry>
+	<box size="${length} ${width} ${height}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+      <geometry>
+	<box size="${length} ${width} ${height}"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia
+	  ixx="${mass / 12.0 * (height*height + length*length)}" ixy="0.0" ixz="0.0"
+	  iyy="${mass / 12.0 * (width*width + length*length)}" iyz="0.0"
+	  izz="${mass / 12.0 * (width*width + height*height)}"/>
+    </inertial>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <parent link="link_cubo1"/>
+    <child link="link_cubo2"/>
+    <origin xyz="0 0 ${width}" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+    <!-- <dynamics damping="0.7"/> -->
+  </joint>
+
+  <!-- Middle Link -->
+  <link name="link_cubo2">
+    <collision>
+      <origin xyz="0 0 ${0.75*height}" rpy="0 0 0"/>
+      <geometry>
+	<box size="${height} ${width} ${length}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${0.75*height}" rpy="0 0 0"/>
+      <geometry>
+	<box size="${height} ${width} ${length}"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="${height/2} ${width/2} ${length/2}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia
+    ixx="${mass / 12.0 * (length*length + height*height)}" ixy="0.0" ixz="0.0"
+    iyy="${mass / 12.0 * (width*width + height*height)}" iyz="0.0"
+    izz="${mass / 12.0 * (width*width + length*length)}"/>
+    </inertial>
+  </link>
+
+  <joint name="fixed1" type="fixed">
+    <parent link="link_cubo2"/>
+    <child link="link_cubo3"/>
+  </joint>
+
+  <link name="link_cubo3">
+    <collision>
+      <origin xyz="0 0 ${1.5*height}" rpy="0 0 0"/>
+      <geometry>
+  <box size="${length} ${width} ${height}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${height*1.5}" rpy="0 0 0"/>
+      <geometry>
+  <box size="${length} ${width} ${height}"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <origin xyz="${length/2} ${width/2} ${height/2}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia
+    ixx="${mass / 12.0 * (height*height + length*length)}" ixy="0.0" ixz="0.0"
+    iyy="${mass / 12.0 * (width*width + length*length)}" iyz="0.0"
+    izz="${mass / 12.0 * (width*width + height*height)}"/>
+    </inertial>
+  </link>
+  
+  <joint name="fixed2" type="fixed">
+    <parent link="link_cubo3"/>
+    <child link="link_sfera"/>
+  </joint>
+
+<link name="link_sfera">
+    <collision>
+      <origin xyz="0 0 0.375" rpy="0 0 0"/>
+      <geometry>
+  <sphere radius="${radius}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 1" rpy="0 0 0"/>
+      <geometry>
+  <sphere radius="${radius}"/>
+      </geometry>
+    </visual>
+
+    <!--inertial>
+      <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+      <mass value="${mass}"/>
+      <inertia
+    ixx="${mass / 12.0 * (height*height + length*length)}" ixy="0.0" ixz="0.0"
+    iyy="${mass / 12.0 * (width*width + length*length)}" iyz="0.0"
+    izz="${mass / 12.0 * (width*width + height*height)}"/>
+    </inertial-->
+  </link>
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="joint1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+    </xacro:macro>
+
+
+</robot>
