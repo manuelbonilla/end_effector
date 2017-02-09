@@ -4,8 +4,14 @@
 	<!-- Include all models -->
 	<xacro:include filename="$(find lwr_description)/model/kuka_lwr.urdf.xacro"/>
 	<xacro:include filename="$(find end_effector)/urdf/end_effector.urdf.xacro" />
-
 	<!-- and assemble your robot -->
+	<link name="world"/>
+
+	<joint name="fixed_w" type="fixed">
+      <parent link="world"/>
+      <child link="box"/>
+    </joint>
+
 	<link name="box">
 		<inertial>
 			<mass value="5.0"/>
@@ -29,17 +35,18 @@
 		</collision>
 	</link>
 
-	<gazebo reference="box">
-		<static>true</static>>
-	</gazebo>
+<!-- 	<gazebo reference="box">
+		<static>true</static>
+	</gazebo -->>
 
 	<!-- using the models -->
 	<xacro:kuka_lwr parent="box" name="lwr">
 		<origin xyz="0 0 1" rpy="0 0 0"/>
 	</xacro:kuka_lwr>
 
-	<xacro:end_effector_kuka_lwr parent="lwr_7_link" name="lwr_end_effector">
-		<origin xyz="0 0 1" rpy="0 0 0"/>
+	<xacro:end_effector_kuka_lwr parent="lwr_7_link" name="lwr">
+		<origin xyz="0 0 0" rpy="0 0 0"/>
 	</xacro:end_effector_kuka_lwr>
+
 
 </robot>
