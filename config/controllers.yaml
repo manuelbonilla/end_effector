@@ -1,0 +1,55 @@
+lwr:
+  # CONTROLLERS USED IN THE EXAMPLE
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 500 
+
+  # THIS CONFIGURATION IS ACTUALLY SENDING TAU = K*Q
+  joint_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints: 
+      - lwr_a1_joint
+      - lwr_a2_joint
+      - lwr_e1_joint
+      - lwr_a3_joint
+      - lwr_a4_joint
+      - lwr_a5_joint
+      - lwr_a6_joint
+
+  stiffness_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - lwr_a1_joint_stiffness
+      - lwr_a2_joint_stiffness
+      - lwr_e1_joint_stiffness
+      - lwr_a3_joint_stiffness
+      - lwr_a4_joint_stiffness
+      - lwr_a5_joint_stiffness
+      - lwr_a6_joint_stiffness
+
+  damping_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - lwr_a1_joint_damping
+      - lwr_a2_joint_damping
+      - lwr_e1_joint_damping
+      - lwr_a3_joint_damping
+      - lwr_a4_joint_damping
+      - lwr_a5_joint_damping
+      - lwr_a6_joint_damping
+
+  add_torque_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - lwr_a1_joint_add_torque
+      - lwr_a2_joint_add_torque
+      - lwr_e1_joint_add_torque
+      - lwr_a3_joint_add_torque
+      - lwr_a4_joint_add_torque
+      - lwr_a5_joint_add_torque
+      - lwr_a6_joint_add_torque
+
+  fphic:
+    type: fphic_controllers/fphic
+    root_name: lwr_base_link
+    tip_name: lwr_7_link

@@ -78,10 +78,10 @@
 	</group>
 
 	<!-- load robotHW configurations to rosparam server -->
-	<rosparam command="load" file="$(find single_lwr_robot)/config/hw_interface.yaml"/>
+	<rosparam command="load" file="$(find end_effector)/config/hw_interface.yaml"/>
 
 	<!-- load all controller configurations to rosparam server -->
-	<rosparam file="$(find single_lwr_robot)/config/controllers.yaml" command="load"/>
+	<rosparam file="$(find end_effector)/config/controllers.yaml" command="load"/>
 
 
     <group ns="lwr">
@@ -100,7 +100,10 @@
 
         <!-- load the controllers in current namespace -->
         <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="joint_state_controller joint_trajectory_controller stiffness_trajectory_controller damping_trajectory_controller add_torque_trajectory_controller"/>
-        <node name="controller_stopper" pkg="controller_manager" type="spawner" args="--stopped joint_impedance_controller fphic" />
+        <node name="controller_stopper" pkg="controller_manager" type="spawner" args="--stopped fphic" />
     </group>
+
+    <node name="my_rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find end_effector)/launch/rviz.rviz" output="screen"/>
+    
 
 </launch>

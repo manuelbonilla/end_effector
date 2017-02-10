@@ -24,6 +24,7 @@
         <updateRate>100.0</updateRate>
         <topicName>${name}/force_meassurements</topicName>
         <jointName>joint1</jointName>
+        
       </plugin>
     </gazebo>
 
