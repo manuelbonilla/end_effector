@@ -1,6 +1,6 @@
 <launch>
 
-    <param name="cylinder_description" command="$(find xacro)/xacro --inorder $(find end_effector)/urdf/cylinder.urdf.xacro" />
-    <node name="cylinder_spawner" pkg="gazebo_ros" type="spawn_model" args="-param cylinder_description -urdf -model cylinder -x -0.8 -y 0 -z 1.15 -R 0 -P 0 -Y 0" respawn="false" output="screen"/>
+    <param name="box_description" command="$(find xacro)/xacro --inorder $(find end_effector)/urdf/box.urdf.xacro" />
+    <node name="box_spawner" pkg="gazebo_ros" type="spawn_model" args="-param box_description -urdf -model box -x -0.8 -y 0 -z 1.15 -R 0 -P 0 -Y 0" respawn="false" output="screen"/>
 
 </launch>
