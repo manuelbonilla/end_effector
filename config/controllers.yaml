@@ -52,4 +52,4 @@ lwr:
   fphic:
     type: fphic_controllers/fphic
     root_name: lwr_base_link
-    tip_name: lwr_7_link
+    tip_name: ef

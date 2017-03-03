@@ -46,7 +46,7 @@
 
 		<!-- enable/disable gui at will, the rviz listens to the simulation -->
 		<include file="$(find gazebo_ros)/launch/empty_world.launch">
-			<arg name="world_name" value="$(find single_lwr_robot)/worlds/simple_environment.world"/>
+			<arg name="world_name" value="$(find end_effector)/worlds/end_effector.world"/>
 			<arg name="paused" value="false"/>
 			<arg name="use_sim_time" value="true"/>
 			<arg name="gui" value="true"/>

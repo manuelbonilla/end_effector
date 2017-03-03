@@ -13,7 +13,7 @@ t2 - "send the robot to a proper initial position"
   frame_id: ''
 joint_names: ['lwr_a1_joint', 'lwr_a2_joint', 'lwr_a3_joint', 'lwr_a4_joint', 'lwr_a5_joint', 'lwr_a6_joint', 'lwr_e1_joint']
 points:
-- positions: [-0.0, 0.9215338450516, -0.8796459430038002, 1.0088003076525998, -0.0, 1.2461650859237996, -0.712094334813]
+- positions: [-0.0, 0.5, 0.8796459430038002, 1.0088003076525998, -0.0, 1.2461650859237996, -0.712094334813]
   velocities: []
   accelerations: []
   effort: []
@@ -26,16 +26,16 @@ strictness: 2"
 
 rostopic pub /lwr/fphic/command lwr_controllers/PoseRPY "id: 0
 position:
-  x: -0.85
-  y: 0.25
-  z: 0.5
+  x: -0.4
+  y: 0.0
+  z: 0.6
 orientation:
   roll: 0.0
-  pitch: 0.0
+  pitch: -1.57
   yaw: 0.0"
 
 if a parameter needs to e updated 
 
 t4 - rosparam set /lwr/fphic/kx 5000.0
 
-t5 - rostopic pub /lwr/fphic/w_des geometry_msgs/Wrench '{force:  {x: 5.0, y: 0.0, z: 0.0}, torque: {x: 0.0,y: 0.0,z: 0.0}}'
+t5 - rostopic pub /lwr/fphic/w_des geometry_msgs/Wrench '{force:  {x: -5.0, y: 0.0, z: 0.0}, torque: {x: 0.0,y: 0.0,z: 0.0}}'

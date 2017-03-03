@@ -48,5 +48,21 @@
 		<origin xyz="0 0 0" rpy="0 0 0"/>
 	</xacro:end_effector_kuka_lwr>
 
+	<joint name="fixed_ef" type="fixed">
+		<origin xyz="0 0 0.0875" rpy="0 0 0"/>
+      <parent link="lwr_7_link"/>
+      <child link="ef"/>
+    </joint>
+
+	<link name="ef">
+		<inertial>
+			<mass value="0.001"/>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<inertia ixx="0.001"
+             iyy="0.001"
+             izz="0.001"
+             ixy="0" iyz="0" ixz="0"/>
+		</inertial>
+	</link>
 
 </robot>
