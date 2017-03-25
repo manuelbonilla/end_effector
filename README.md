@@ -38,4 +38,4 @@ if a parameter needs to e updated
 
 t4 - rosparam set /lwr/fphic/kx 5000.0
 
-t5 - rostopic pub /lwr/fphic/w_des geometry_msgs/Wrench '{force:  {x: -5.0, y: 0.0, z: 0.0}, torque: {x: 0.0,y: 0.0,z: 0.0}}'
+t5 - rostopic pub /lwr/fphic/w_des geometry_msgs/Wrench '{force:  {x: 4.0, y: 0.0, z: 0.0}, torque: {x: 0.0,y: 0.0,z: 0.0}}'

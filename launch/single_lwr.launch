@@ -54,6 +54,10 @@
 			<arg name="debug" value="false"/>
 
 		</include>
+
+		<param name="box_description" command="$(find xacro)/xacro --inorder $(find end_effector)/urdf/box.urdf.xacro" />
+    <node name="box_spawner" pkg="gazebo_ros" type="spawn_model" args="-param box_description -urdf -model box -x -0.5 -y 0 -z 1.15 -R 0 -P 0 -Y 0" respawn="false" output="screen"/>
+
 	</group>
 
 	<!-- load moveit configuration -->
@@ -99,8 +103,7 @@
         </group>
 
         <!-- load the controllers in current namespace -->
-        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="joint_state_controller joint_trajectory_controller stiffness_trajectory_controller damping_trajectory_controller add_torque_trajectory_controller"/>
-        <node name="controller_stopper" pkg="controller_manager" type="spawner" args="--stopped fphic" />
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen"  args="joint_state_controller  fphic "/>
     </group>
 
     <node name="my_rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(find end_effector)/launch/rviz.rviz" output="screen"/>

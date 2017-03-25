@@ -9,8 +9,9 @@ Panels:
         - /RobotModel1
         - /TF1
         - /TF1/Frames1
+        - /TF1/Frames1/ef1
       Splitter Ratio: 0.5
-    Tree Height: 581
+    Tree Height: 457
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -66,6 +67,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        ef:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         link_cubo1:
           Alpha: 1
           Show Axes: false
@@ -90,28 +95,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        lwr_1_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_1_link_dummy_damping:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         lwr_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         lwr_2_link_dummy:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_2_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_2_link_dummy_damping:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -124,28 +113,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        lwr_3_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_3_link_dummy_damping:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         lwr_4_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         lwr_4_link_dummy:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_4_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_4_link_dummy_damping:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -158,14 +131,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        lwr_5_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_5_link_dummy_damping:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         lwr_6_link:
           Alpha: 1
           Show Axes: false
@@ -175,28 +140,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        lwr_6_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_6_link_dummy_damping:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         lwr_7_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         lwr_7_link_dummy:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_7_link_dummy_add_torque:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        lwr_7_link_dummy_damping:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -230,6 +179,8 @@ Visualization Manager:
         All Enabled: false
         box:
           Value: false
+        ef:
+          Value: true
         link_cubo1:
           Value: false
         link_cubo2:
@@ -240,57 +191,29 @@ Visualization Manager:
           Value: false
         lwr_1_link_dummy:
           Value: false
-        lwr_1_link_dummy_add_torque:
-          Value: false
-        lwr_1_link_dummy_damping:
-          Value: false
         lwr_2_link:
           Value: false
         lwr_2_link_dummy:
-          Value: false
-        lwr_2_link_dummy_add_torque:
-          Value: false
-        lwr_2_link_dummy_damping:
           Value: false
         lwr_3_link:
           Value: false
         lwr_3_link_dummy:
           Value: false
-        lwr_3_link_dummy_add_torque:
-          Value: false
-        lwr_3_link_dummy_damping:
-          Value: false
         lwr_4_link:
           Value: false
         lwr_4_link_dummy:
-          Value: false
-        lwr_4_link_dummy_add_torque:
-          Value: false
-        lwr_4_link_dummy_damping:
           Value: false
         lwr_5_link:
           Value: false
         lwr_5_link_dummy:
           Value: false
-        lwr_5_link_dummy_add_torque:
-          Value: false
-        lwr_5_link_dummy_damping:
-          Value: false
         lwr_6_link:
           Value: false
         lwr_6_link_dummy:
           Value: false
-        lwr_6_link_dummy_add_torque:
-          Value: false
-        lwr_6_link_dummy_damping:
-          Value: false
         lwr_7_link:
           Value: true
         lwr_7_link_dummy:
-          Value: false
-        lwr_7_link_dummy_add_torque:
-          Value: false
-        lwr_7_link_dummy_damping:
           Value: false
         lwr_base_link:
           Value: true
@@ -312,51 +235,25 @@ Visualization Manager:
                       lwr_5_link:
                         lwr_6_link:
                           lwr_7_link:
+                            ef:
+                              {}
                             link_cubo1:
                               link_cubo2:
                                 link_sfera:
                                   {}
                           lwr_7_link_dummy:
                             {}
-                          lwr_7_link_dummy_add_torque:
-                            {}
-                          lwr_7_link_dummy_damping:
-                            {}
                         lwr_6_link_dummy:
-                          {}
-                        lwr_6_link_dummy_add_torque:
-                          {}
-                        lwr_6_link_dummy_damping:
                           {}
                       lwr_5_link_dummy:
                         {}
-                      lwr_5_link_dummy_add_torque:
-                        {}
-                      lwr_5_link_dummy_damping:
-                        {}
                     lwr_4_link_dummy:
-                      {}
-                    lwr_4_link_dummy_add_torque:
-                      {}
-                    lwr_4_link_dummy_damping:
                       {}
                   lwr_3_link_dummy:
                     {}
-                  lwr_3_link_dummy_add_torque:
-                    {}
-                  lwr_3_link_dummy_damping:
-                    {}
                 lwr_2_link_dummy:
                   {}
-                lwr_2_link_dummy_add_torque:
-                  {}
-                lwr_2_link_dummy_damping:
-                  {}
               lwr_1_link_dummy:
-                {}
-              lwr_1_link_dummy_add_torque:
-                {}
-              lwr_1_link_dummy_damping:
                 {}
       Update Interval: 0
       Value: true
@@ -389,6 +286,19 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Arrow Width: 0.5
+      Class: rviz/WrenchStamped
+      Enabled: true
+      Force Arrow Scale: 2
+      Force Color: 204; 51; 51
+      History Length: 1
+      Name: WrenchStamped
+      Topic: /lwr/force_meassurements
+      Torque Arrow Scale: 2
+      Torque Color: 204; 204; 51
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -434,10 +344,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 906
+  Height: 744
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000002ee000002dbfc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000043000002db000000de00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002dbfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730100000043000002db000000b800fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006b500000044fc0100000002fb0000000800540069006d00650100000000000006b50000025800fffffffb0000000800540069006d00650100000000000004500000000000000000000002ac000002db00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000002ee00000258fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000002800000258000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f00000258fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000002800000258000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000051900000044fc0100000002fb0000000800540069006d0065010000000000000519000002f600fffffffb0000000800540069006d00650100000000000004500000000000000000000001100000025800000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -446,6 +356,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1717
-  X: 81
-  Y: 47
+  Width: 1305
+  X: 61
+  Y: 24
